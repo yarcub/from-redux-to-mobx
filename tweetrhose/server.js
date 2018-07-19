@@ -25,15 +25,20 @@ process.on('unhandledRejection', (err) => {
  
 var Twitter = new TwitterStream(keys, true);
 Twitter.stream('statuses/filter', {
-    track: ['javascript','portugal']
+    track: ['javascript']
 })
 Twitter.on('connection success', function (uri) {
   console.log('Twitter Stream connection success', uri);
 });
 Twitter.on('data', data => {
+  console.log(`Pushing tweets to ${clients.size} client`)
   clients.forEach((socket => {
     socket.emit('tweet',{
-      user: data.user.screen_name,
+      id: data.id,
+      user: {
+        name: data.user.screen_name,
+        avatar: data.user.profile_image_url_https,
+      },
       text: data.text
     })
   }))
@@ -42,6 +47,10 @@ Twitter.on('data', data => {
 io.on('connection', function (socket) {
   console.log(`Client Connected: ${socket.id}`)
   clients.set(socket.id, socket)
+  socket.on('disconnect', reason => {
+    console.log(`Client Disconnected: ${socket.id}`)
+    clients.delete(socket.id)
+  })
 });
 
 init();
