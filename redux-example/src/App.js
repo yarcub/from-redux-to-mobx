@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Timeline from './containers/TimelineContainer'
 import Header from './containers/HeaderContainer'
+import TopicSearch from './containers/SearchContainer';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Timeline />
+        <TopicSearch />
       </div>
     );
   }

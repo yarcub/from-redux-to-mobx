@@ -60,3 +60,7 @@
 .top-header .text {
   padding: 0 10px 0 10px;
 }
+
+.topic-search {
+  border: 1px solid;
+}
