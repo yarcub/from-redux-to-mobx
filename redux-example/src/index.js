@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import io from 'socket.io-client';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers'
 import {actions} from './actions'
 import App from './App';
+import createSagaMiddleware from 'redux-saga'
 import './index.css';
+import rootSaga from './sagas'
 
-const store = createStore(rootReducer, undefined, devToolsEnhancer())
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(rootReducer, undefined, composeWithDevTools(
+  applyMiddleware(sagaMiddleware)
+))
+
+sagaMiddleware.run(rootSaga)
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,7 +2,7 @@ import { types } from '../actions'
 
 const initialState = {
   tweets: [],
-  visibleTweets: 4
+  visibleTweets: 10
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +15,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         visibleTweets: state.tweets.length
       })
+    case types.CHANGE_TOPICS_SUCCESS:
+    case types.CLEAR_TWEETS:
+      return initialState
     default:
       return state
   }
