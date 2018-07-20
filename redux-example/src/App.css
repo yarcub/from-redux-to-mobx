@@ -1,21 +1,30 @@
 @import '~antd/dist/antd.css';
 
-.App {
+:root {
   --app-width: 400px;
   --app-height: 700px;
-  background-color: white;
+}
+
+.App {
   top: calc(50% - var(--app-height)/2);
   left: calc(50% - var(--app-width)/2);
-  border: 1px solid black;
-  padding: 10px;
   height: var(--app-height);
   width: var(--app-width);
+  position: fixed;
+  
+}
+
+.ant-list {
+  height: 100%;
+  width: 100%;
   overflow-y: scroll;
-  position: absolute;
+  background-color: white;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+  border: 1px solid black;
 }
 
 .ant-list-item-meta {
+  padding: 5px;
   background-color: white;
   border-bottom: 1px solid grey;
 }
@@ -25,4 +34,29 @@
 }
 .ant-list-item-meta-description {
   color: black;
+}
+
+.ant-badge {
+  padding-left: 10px;
+}
+
+.top-header {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background: #aed9f3;
+  display: flex;
+}
+
+.top-header:hover {
+  background: #5c91b1;
+  cursor: pointer;
+}
+
+.top-header .text {
+  padding: 0 10px 0 10px;
 }
