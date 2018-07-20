@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "redux-saga": "^0.16.0",
-    "socket.io": "^2.1.1"
-  }
-}
