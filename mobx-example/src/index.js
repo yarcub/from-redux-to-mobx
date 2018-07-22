@@ -9,7 +9,7 @@ import io from 'socket.io-client';
 const store = new Store()
 
 ReactDOM.render(
-  <Provider appStore={store.appStore}>
+  <Provider appStore={store.appStore} twitterStore={store.twitterStore}>
     <App />
   </Provider>
 , document.getElementById('root'));
