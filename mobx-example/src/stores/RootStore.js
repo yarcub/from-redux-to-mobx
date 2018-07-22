@@ -1,4 +1,4 @@
-import { configure, observable, computed, action } from "mobx";
+import { configure } from "mobx";
 import TwitterStore from './TwitterStore'
 import AppStore from './AppStore'
 

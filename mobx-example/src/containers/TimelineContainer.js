@@ -1,14 +1,7 @@
-import { observer } from 'mobx-react'
-import { toJS } from 'mobx'
-import React from 'react'
-import TweetTimeline from '../components/Header'
-import store from '../stores/Twitter'
+import { inject } from 'mobx-react'
+import TweetTimeline from '../components/TweetTimeline'
 
-
-export default observer(props => {
-  console.log('render Timeline')
-  return <TweetTimeline
-    tweets={toJS(store.tweets)}
-    isShowingAll={store.unreadCount < 1}
-  />
-})
+export default inject(stores => ({
+  tweets: stores.appStore.timeline,
+  isShowingAll: stores.appStore.unreadTweets === 0
+}))(TweetTimeline)
