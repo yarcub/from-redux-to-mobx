@@ -2,7 +2,7 @@ import React from 'react';
 import {List} from 'antd'
 import TweetPreview from './TweetPreview'
 
-export default ({tweets, isShowingAll}) => {
+export default ({tweets =[], isShowingAll = true}) => {
   const overrides = {
     marginTop: isShowingAll ? '0px' : '30px'
   }
