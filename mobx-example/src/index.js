@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Store from './stores/RootStore'
 import { Provider } from 'mobx-react'
-import io from 'socket.io-client';
+import io from 'socket.io-client'
 
 const store = new Store()
 

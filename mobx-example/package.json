@@ -11,6 +11,7 @@
     "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
+    "mobx-react-devtools": "^6.0.1",
     "react-app-rewire-mobx": "^1.0.8",
     "react-app-rewired": "^1.5.2",
     "react-scripts": "1.1.4"
